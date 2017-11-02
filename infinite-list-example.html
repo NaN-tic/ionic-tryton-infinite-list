@@ -1,0 +1,33 @@
+<!--
+This is a template view of what an infinite-list has to implement
+-->
+
+<ion-header>
+  <!-- Hide back button for this specific view-->
+  <ion-navbar>
+    <ion-title> {{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div #dataContainer></div>
+  <ion-list>
+     <ion-item *ngFor="let i of list_items">
+      {{i.name}}
+     </ion-item>
+   </ion-list>
+
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll-content></ion-infinite-scroll-content>
+   </ion-infinite-scroll>
+
+</ion-content>
+
+<ion-footer>
+  
+  <button (click)="goBack()">
+    Back
+  </button>
+
+</ion-footer>
+
