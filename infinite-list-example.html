@@ -1,7 +1,6 @@
 <!--
 This is a template view of what an infinite-list has to implement
 -->
-
 <ion-header>
   <!-- Hide back button for this specific view-->
   <ion-navbar>
@@ -20,14 +19,10 @@ This is a template view of what an infinite-list has to implement
    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
      <ion-infinite-scroll-content></ion-infinite-scroll-content>
    </ion-infinite-scroll>
-
 </ion-content>
 
 <ion-footer>
-  
   <button (click)="goBack()">
     Back
   </button>
-
 </ion-footer>
-
