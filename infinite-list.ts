@@ -71,12 +71,9 @@ export class InfiniteList {
   doInfinite(infiniteScroll: any) {
     if (this.list_items.length == 0)
       infiniteScroll.enable(false);
-      console.log("Begin async op");
       this.loadData().then(() => {
         // Disable scroll if list is empty
         if (this.list_items.length == 0)
-          //infiniteScroll.enable(false);
-          console.log(this.list_items)
         infiniteScroll.complete();
 
       })
@@ -97,10 +94,7 @@ export class InfiniteList {
       data =>{
         // We do this so we can be sure of the data type afterwards
         this.list_items = this.list_items.concat(data[this.method]);
-        console.log("Received data", this.list_items);
         this.offset+=this.limit;
-
-        console.log("Done");
         this.events.publish("Data loading finished")
         resolve(true)
       },
