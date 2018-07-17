@@ -49,7 +49,11 @@ export class InfiniteList {
    * @type {number}
    */
   limit: number = 10;
-
+  /**
+   * Limit to search
+   * @type {Array<any>}
+   */
+  order: Array<any> = [];
   /**
    * Items to display
    * @type {Array<any>}
@@ -81,8 +85,7 @@ export class InfiniteList {
    */
   loadData() {
     let json_constructor = new EncodeJSONRead;
-    json_constructor.addNode(this.method, this.domain,
-        this.fields, this.offset, this.limit);
+    json_constructor.addNode(this.method, this.domain, this.fields, this.offset, this.limit, this.order || []);
 
     let json = json_constructor.createJson()
 
