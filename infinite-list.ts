@@ -66,6 +66,24 @@ export class InfiniteList {
     public events: Events) {
   }
 
+  errorHandler(error: any): void {
+     let httpErrorCode = error['status'];
+     switch (httpErrorCode) {
+       case 301:
+         alert(error);
+         console.log(error);
+         // alert('Session expired. Try to relogin');
+         break;
+       case 401:
+         alert(error);
+         console.log(error);
+         // alert('Session expired. Try to relogin');
+         break;
+       default:
+       console.log(error);
+     }
+  }
+
   /**
    * Allows a view to have infinite scrolling, meaning that it will not
    * load all the items from a list at the same time, but will load them as
@@ -99,7 +117,8 @@ export class InfiniteList {
         resolve(true);
       },
       error => {
-          console.log("Error", error)
+          // console.log("Error", error);
+          this.errorHandler(error);
       });
     })
   }
